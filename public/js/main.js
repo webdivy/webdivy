@@ -59,3 +59,26 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 1000); // Simulating form submission delay for 1 second
   });
 });
+document.addEventListener("DOMContentLoaded", function() {
+  // Get references to the buttons and testimonial text element
+  const testimonial1Button = document.getElementById("testimonial1");
+  const testimonial2Button = document.getElementById("testimonial2");
+  const testimonial3Button = document.getElementById("testimonial3");
+  const testimonialText = document.getElementById("testimonial-text");
+
+  // Add click event listeners to the buttons
+  testimonial1Button.addEventListener("click", function() {
+    // Change the testimonial text when button 1 is clicked
+    testimonialText.textContent = "Testimonial 1 text goes here.";
+  });
+
+  testimonial2Button.addEventListener("click", function() {
+    // Change the testimonial text when button 2 is clicked
+    testimonialText.textContent = "test123";
+  });
+
+  testimonial3Button.addEventListener("click", function() {
+    // Change the testimonial text when button 3 is clicked
+    testimonialText.textContent = "test234";
+  });
+});
