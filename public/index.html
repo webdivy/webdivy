@@ -46,26 +46,31 @@
         display: block;
       }
 
-           /* Hide dropdown content by default */
+   /* Hide dropdown content by default */
       .dropdown-content {
-        display: none;
+        opacity: 0;
+        transition: opacity 0.5s ease;
       }
 
-      /* Show the dropdown content when active class is added */
-      .dropdown-content.active {
-        display: block;
+      /* Show the dropdown content on hover */
+      .dropdown:hover .dropdown-content {
+        opacity: 1;
+        transition: opacity 0.5s ease;
       }
     </style>
     <script>
-      // Toggle class to show/hide dropdown content on click
-      document.addEventListener('click', function(e) {
-        var dropdownContent = document.querySelector('.dropdown-content');
-        var dropdownLabel = document.querySelector('.dropdown-label');
-        if (e.target === dropdownLabel) {
-          dropdownContent.classList.toggle('active');
-        } else {
-          dropdownContent.classList.remove('active');
-        }
+      // Toggle dropdown content visibility on hover
+      var dropdown = document.querySelector('.dropdown');
+      dropdown.addEventListener('mouseenter', function() {
+        var dropdownContent = this.querySelector('.dropdown-content');
+        dropdownContent.style.opacity = 1;
+      });
+      dropdown.addEventListener('mouseleave', function() {
+        var dropdownContent = this.querySelector('.dropdown-content');
+        dropdownContent.style.opacity = 0;
+        setTimeout(function() {
+          dropdownContent.style.opacity = 0;
+        }, 2000); // Change the value (in milliseconds) to adjust the delay time
       });
     </script>
   </head>
