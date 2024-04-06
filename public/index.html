@@ -46,61 +46,47 @@
         display: block;
       }
 
-      /* Hide dropdown content by default */
+           /* Hide dropdown content by default */
       .dropdown-content {
-        opacity: 0;
-        transition: opacity 0.5s ease;
+        display: none;
       }
 
-      /* Show the dropdown content on hover */
-      .dropdown:hover .dropdown-content {
-        opacity: 1;
-        transition: opacity 0.5s ease;
+      /* Show the dropdown content when active class is added */
+      .dropdown-content.active {
+        display: block;
       }
     </style>
-        <script>
-      // Toggle dropdown content visibility on hover
-      var dropdown = document.querySelector('.dropdown');
-      dropdown.addEventListener('mouseenter', function() {
-        var dropdownContent = this.querySelector('.dropdown-content');
-        dropdownContent.style.opacity = 1;
-      });
-      dropdown.addEventListener('mouseleave', function() {
-        var dropdownContent = this.querySelector('.dropdown-content');
-        dropdownContent.style.opacity = 0;
-        setTimeout(function() {
-          dropdownContent.style.opacity = 0;
-        }, 2000); // Change the value (in milliseconds) to adjust the delay time
+    <script>
+      // Toggle class to show/hide dropdown content on click
+      document.addEventListener('click', function(e) {
+        var dropdownContent = document.querySelector('.dropdown-content');
+        var dropdownLabel = document.querySelector('.dropdown-label');
+        if (e.target === dropdownLabel) {
+          dropdownContent.classList.toggle('active');
+        } else {
+          dropdownContent.classList.remove('active');
+        }
       });
     </script>
-</head>
-<body class="antialiased bg-body text-body font-body">
-    <div class="">
-                
-      <section class="bg-gradient-pink2 background-animate overflow-hidden"><section>
-          <div class="hidden navbar-menu fixed top-0 left-0 bottom-0 w-4/6 sm:max-w-xs z-50">
-            <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-80"></div>
-            <nav class="relative z-10 px-9 py-8 bg-white h-full"><div class="flex flex-wrap justify-between h-full">
-                <div class="w-full">
-                  <div class="flex items-center justify-between -m-2">
-                    <div class="w-auto p-2">
-                      <a class="inline-block" href="#">
-                        <img src="images/Artboard-4-copy.jpg" alt="" class="size"></a>
-                    </div>
-                    <div class="w-auto p-2">
-                      <a class="navbar-burger" href="#">
-                        <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 18L18 6M6 6L18 18" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="flex flex-col justify-center py-8 w-full">
-                  <ul>
-      <li class="mb-12"><a class="font-heading font-medium text-lg text-gray-900 hover:text-gray-700" href="index.html">Home</a></li>
-                    <li class="mb-12"><a class="font-heading font-medium text-lg text-gray-900 hover:text-gray-700" href="about.html">About</a></li>
-                    <li class="mb-12"><a class="font-heading font-medium text-lg text-gray-900 hover:text-gray-700" href="insurance.html">Insurance</a></li>
-                    <li><a class="font-heading font-medium text-lg text-gray-900 hover:text-gray-700" href="contact.html">Contact</a></li>
-                  </ul>
-      </div>
+  </head>
+  <body>
+    <div class="w-auto hidden lg:block">
+      <ul class="flex items-center mr-10">
+        <li class="font-heading mr-9 text-white hover:text-gray-200 text-lg"><a href="index.html">Home</a></li>
+        <li class="font-heading mr-9 text-white hover:text-gray-200 text-lg">
+          <div class="dropdown">
+            <a href="#" class="dropdown-label">Our Services</a>
+            <div class="dropdown-content">
+              <a href="#">Insurance</a>
+              <a href="#">Mutual Funds</a>
+              <a href="#">Others</a>
+            </div>
+          </div>
+        </li>
+        <li class="font-heading mr-9 text-white hover:text-gray-200 text-lg"><a href="#">About</a></li>
+        <li class="font-heading text-white hover:text-gray-200 text-lg"><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
                 <div class="flex flex-col justify-end w-full">
                   <div class="flex flex-wrap">
                     <div class="w-full">
