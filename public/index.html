@@ -46,6 +46,18 @@
         display: block;
       }
     </style>
+       <script>
+      // Toggle class to show/hide dropdown content on click
+      document.addEventListener('click', function(e) {
+        var dropdownContent = document.querySelector('.dropdown-content');
+        var dropdownLabel = document.querySelector('.dropdown-label');
+        if (e.target === dropdownLabel) {
+          dropdownContent.classList.toggle('active');
+        } else {
+          dropdownContent.classList.remove('active');
+        }
+      });
+    </script>
 </head>
 <body class="antialiased bg-body text-body font-body">
     <div class="">
